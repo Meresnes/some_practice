@@ -25,13 +25,14 @@ user_login = input('Login: ')
 user_password = input('Password: ')
 
 #Проверка нахождениея логина в users 
-sql.execute("SELECT login FROM users WHERE login = '{user_login}' ")
+sql.execute(f"SELECT login FROM users WHERE login = '{user_login}'")
 #Сама проверка
 
-if sql.fetchone() in sql:
+if sql.fetchone() is None:
     #Запись данных в бд
     sql.execute(f"INSERT INTO users VALUES (?,?,?)",(user_login,user_password,0))
     db.commit()
+    
     print('Зарегистрированно!')
 else:
     print('Такая запись уже есть!')
