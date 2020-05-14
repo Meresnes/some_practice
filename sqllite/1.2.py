@@ -9,6 +9,7 @@ sql = db.cursor()
 
 
 sql.execute("""CREATE TABLE IF NOT EXISTS users(
+    id INTEGER PRIMARY KEY,
     login TEXT,
     password TEXT,
     cash INT
@@ -23,7 +24,7 @@ def reg():
     sql.execute(f"SELECT login FROM users WHERE login = '{user_login}'")
 
     if sql.fetchone() is None:
-        sql.execute(f"INSERT INTO users VALUES (?,?,?)",(user_login,user_password,0))
+        sql.execute(f"INSERT INTO users (login,password,cash) VALUES (?,?,?)",(user_login,user_password,0))
         db.commit()
         
         print('Зарегистрированно!')
