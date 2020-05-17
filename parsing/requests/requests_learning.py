@@ -53,11 +53,17 @@ def save_films(items,path):
             for item in items:
                 writer.writerow([item['number'],item['title'],item['rate']+'*',item['year'],item['country'],item['genre'],item['regisseur']])
     except PermissionError:
-        print('Закройте csv файл')
+        print('Закройте csv файл или запустите программу от имени администратора!')
 def parsing():
     
     html = get_html(URL)
     #pages = get_pages(html)
+    print ("""
+    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    !                                  ВНИМАНИЕ!!!                                      !
+    ! Для коректной работы программы необходимо запустить её от имени администратоа!!   !
+    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
+              """)
     pages = int(input('Введите кол-во страниц: '))
     film = []
     k = 0
