@@ -21,16 +21,17 @@ def get_pages(html):
         1
 
 
-def get_content(html):
+def get_content(html,k):
     soup = BeautifulSoup(html,'html.parser')
     items = soup.find_all('div',class_='films_padding')
     film_list = []
-    k = 0
+    
     for item in items:
-        k += 1
+        
         try:
+            k += 0.5
             film_list.append({
-            'number': k,
+            'number': int(k),
             'title': item.find('a',class_='films_name ref').get_text(),
             'rate': item.find('span',class_='rating_num').get_text(),
             'year': item.find('span',class_='films_info').get_text()[:4],
@@ -56,13 +57,16 @@ def save_films(items,path):
 def parsing():
     
     html = get_html(URL)
-    pages = get_pages(html)
+    #pages = get_pages(html)
+    pages = int(input('Введите кол-во страниц: '))
     film = []
-
-    for page in range(1,pages):
-        print(f'Parsin {page} page of {pages}...')
+    k = 0
+    for page in range(0,pages):
+        
+        print(f'Parsin {page+1} page of {pages}...')
         html = get_html(URL,params={'page':page})
-        film.extend(get_content(html))
+        film.extend(get_content(html,k))
+        k += 100
     
     save_films(film,FILE)
     os.startfile(FILE)
