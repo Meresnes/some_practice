@@ -10,9 +10,7 @@ def run_game():
 
     while True:
         gf.game_events(ship)
-        ship.rocket_move()
+        ship.update()
 
-        screen.fill((255, 255, 250))
-        ship.blitme()
-        pygame.display.flip()
+        gf.update_screen(screen,ship)
 run_game()

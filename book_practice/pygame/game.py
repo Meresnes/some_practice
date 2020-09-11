@@ -13,6 +13,7 @@ def run_game():
     pygame.display.set_caption("Alien Invasion")
     ship = Ship(screen, game_settings)
 
+
     while True:
         #обрабатывает нажатия клавишь и мыши
         gf.cheсk_events(ship)
