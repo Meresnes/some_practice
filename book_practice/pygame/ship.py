@@ -14,7 +14,7 @@ class Ship():
         self.rect.bottom = self.screen_rect.bottom
         # Сохранение вещественной координаты центра корабля.
         self.center = float(self.rect.centerx)
-        #Флаг перемещения
+        #Флаг перемещения (False не двигаться), а True - двигаться
         self.moving_right = False
         self.moving_left = False
 
@@ -29,4 +29,4 @@ class Ship():
 
     def blitme(self):
         """Рисует корабль в текущей позиции"""
-        self.screen.blit(self.image ,self.rect)
+        self.screen.blit(self.image, self.rect)
