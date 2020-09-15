@@ -23,7 +23,7 @@ def run_game():
 
         bullets.update()
         # Обновляет изображение на экране и отображает новый экран
-        gf.update_screen(game_settings, screen, ship, bullets )
+        gf.update_screen(game_settings, screen, ship, bullets)
 
 
 run_game()
