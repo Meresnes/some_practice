@@ -1,7 +1,7 @@
 import requests
 import json
 
-MY_API = 'ac1b1fb80956f9d9659b9c4acff36371'
+MY_API = open('MY_API.txt', 'r').read()
 City1 = 'Chicago, US'
 City2 = 'Saint Petersburg, RU'
 City3 = 'Bangladesh, BD'
