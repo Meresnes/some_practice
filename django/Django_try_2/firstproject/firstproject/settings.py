@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -19,8 +20,10 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
+PROJECT_PATH = "D:\git\some_practice\django\Django_try_2\firstproject\firstproject"
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = open('SECRET_KEY.txt', 'r').read()
+SECRET_KEY = os.path.join(PROJECT_PATH, 'SK.txt')
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
