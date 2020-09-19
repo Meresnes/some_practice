@@ -6,16 +6,7 @@ def home(request):
 
 def reverse(request):
     user_text = request.GET['usertext']
-    words_len = 0
-    k = 0
-    for i in user_text:
-        if i == ' ':
-            words_len += 1
-        k += 1
-    if words_len > 0:
-        words_len += 1
-    elif k > 0:
-        words_len = 1
+    words_len = len(user_text.split())
     reversed_text = user_text[::-1]
     return render(request, 'reverse.html', {'words': words_len,
                                             'user_text': user_text,
